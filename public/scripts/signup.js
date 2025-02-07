@@ -27,11 +27,11 @@ function handleValidation(event) {
   }
 }
 
-function handleSignup() {
-  const username = document.querySelector(".username-input").value;
-  const email = document.querySelector(".email-input").value;
-  const password = document.querySelector(".password-input").value;
-  const passwordAgain = document.querySelector(".password-again-input").value;
+async function handleSignup() {
+  const username = document.querySelector(".username-input").value.trim();
+  const email = document.querySelector(".email-input").value.trim();
+  const password = document.querySelector(".password-input").value.trim();
+  const passwordAgain = document.querySelector(".password-again-input").value.trim();
 
   const errors = {
     username: validateSignupField("username", username),
@@ -48,10 +48,30 @@ function handleSignup() {
     }
   });
 
-  if (Object.values(errors).some(msg => msg)) return;
+  if (Object.values(errors).some(msg => msg)) return; // Stop if there are errors
 
-  document.querySelector(".signup-form").reset();
-  console.log("Signup successful:", username, email, password);
+  try {
+    const response = await fetch("http://localhost:8080/api/v1/users/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        "username": username,
+        "password": password,
+        "email": email
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Signup failed. Please try again.");
+    }
+
+    alert("Signup successful! Redirecting to login...");
+    window.location.href = "index.html"; // Redirect to login page
+  } catch (error) {
+    alert(error.message);
+  }
 }
 
 document.querySelectorAll(".signup-form input").forEach(input => {
@@ -69,7 +89,7 @@ document.querySelectorAll('.signup-form input').forEach((input, index, inputs) =
       if (nextInput) {
         nextInput.focus();
       } else {
-        document.querySelector('.signup-button').focus(); 
+        document.querySelector('.signup-button').focus();
       }
     }
   });

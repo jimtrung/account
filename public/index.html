@@ -14,22 +14,24 @@
     <form class="login-form">
       <label>
         <span>Username:</span>
-        <input type="text" class="username-input">
+        <input type="text" class="username-input" autocomplete="off" name="username">
+        <p class="error username-error"></p>
       </label>
 
       <label>
         <span>Password:</span>
-        <input type="password" class="password-input">
+        <input type="password" class="password-input" autocomplete="off" name="password">
+        <p class="error password-error"></p>
       </label>
 
-      <p class="error-message"></p>
+      <p class="error login-error"></p>
 
       <label class="checkbox-label">
         <input type="checkbox" class="checkbox">
         <span>Remember me</span>
       </label>
 
-      <button type="button" class="login-button" onclick="manualLogin()">Login</button>
+      <button type="button" class="login-button">Login</button>
 
       <a href="forgotpassword.html" class="forgot-password">Forgot your password?</a>
     </form>
