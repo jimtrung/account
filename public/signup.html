@@ -14,27 +14,30 @@
     <form class="signup-form">
       <label>
         <span>Username:</span>
-        <input type="text" class="username-input">
+        <input type="text" name="username" class="username-input">
+        <span class="error username-error"></span>
       </label>
-
+    
       <label>
         <span>Email:</span>
-        <input type="email" class="email-input">
+        <input type="email" name="email" class="email-input">
+        <span class="error email-error"></span>
       </label>
-
+    
       <label>
         <span>Password:</span>
-        <input type="password" class="password-input">
+        <input type="password" name="password" class="password-input">
+        <span class="error password-error"></span>
       </label>
-
+    
       <label>
         <span>Confirm Password:</span>
-        <input type="password" class="password-again-input">
+        <input type="password" name="passwordAgain" class="password-again-input">
+        <span class="error password-again-error"></span>
       </label>
-
-      <button type="button" class="signup-button" onclick="manualSignup()">Signup</button>
+    
+      <button type="button" class="signup-button">Signup</button>
     </form>
-
     <hr>
 
     <div class="links">
@@ -43,6 +46,6 @@
     </div>
   </div>
 
-  <script src="/scripts/signup.js"></script>
+  <script src="scripts/signup.js"></script>
 </body>
 </html>

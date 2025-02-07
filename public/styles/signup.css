@@ -11,7 +11,7 @@ body {
     height: 100vh;
 }
 
-.signup-container {  /* Changed from login-container */
+.signup-container {
     border: 1px solid white;
     border-radius: 10px;
     padding: 20px;
@@ -31,25 +31,25 @@ hr {
     margin: 15px 0;
 }
 
-.signup-form {  /* Changed from input-container */
+.signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 label {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Stack input and error message */
+    align-items: flex-start;
     width: 100%;
     max-width: 300px;
-    gap: 10px;
+    gap: 5px;
 }
 
 input {
     font-size: 16px;
-    width: 250px;
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid white;
@@ -57,13 +57,16 @@ input {
     color: white;
 }
 
-.signup-button-container {  /* Changed from login-button-container */
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+/* 🔥 Error message styling */
+.error {
+    font-size: 14px;
+    color: red;
+    min-height: 18px; /* Prevent shifting */
+    margin-top: -5px;
+    display: block;
 }
 
-.signup-button {  /* Changed from login-button */
+.signup-button {
     font-size: 16px;
     padding: 8px 30px;
     border-radius: 25px;
@@ -72,6 +75,7 @@ input {
     background-color: lightblue;
     color: black;
     transition: opacity 0.15s;
+    margin-top: 10px;
 }
 
 .signup-button:hover {
