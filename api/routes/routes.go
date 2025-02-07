@@ -16,6 +16,10 @@ func SetupRoutes(r *gin.Engine) {
 	users.POST("/login", handlers.Login)
 	users.GET("/validate", middleware.RequireAuth, handlers.Validate)
 
+	// Oauth
+	r.GET("/auth/:provider", middleware.BeginAuthProviderCallback)
+	r.GET("/auth/:provider/callback", middleware.GetAuthCallBackFunction)
+
 	// Middleware
 	r.Static("/static", "./public")
 }

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const logoutButton = document.querySelector(".logout-button");
 
     try {
-        const response = await fetch("http://localhost:8080/api/v1/users/validate", {
+        const response = await fetch("http://127.0.0.1:8080/api/v1/users/validate", {
             method: "GET",
             credentials: "include",  // ✅ Ensure cookies are sent
             headers: { "Content-Type": "application/json" }

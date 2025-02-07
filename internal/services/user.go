@@ -63,3 +63,7 @@ func GetUserByUsername(username string) (models.User, error) {
 
 	return user, nil
 }
+
+func GenerateRandomPassword() string {
+	return "ajhdajadbhsbkdb"
+}
