@@ -3,48 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/login.css">
-  <title>Signup</title>
+  <link rel="stylesheet" href="styles/login.css">
+  <title>Login</title>
 </head>
 <body>
   <div class="login-container">
-    <div class="content-container">
-      Login into jimtrung's Store
-    </div>
-    <hr class="hr1">
-    <div class="input-container">
-      <div class="username-container">
-        <span class="info">Username: </span>
-        <input class="username-input" type="text">
-      </div>
-      <div class="password-container">
-        <span class="info">Password: </span>
-        <input class="password-input" type="password">
-      </div>
-      <div class="checkbox-container">
-        <label class="checkbox-label">
-          <input class="checkbox" type="checkbox">
-          <span class="checkbox-content">Remember me</span>
-        </label>
-      </div>
-      <div class="login-button-container">
-        <button class="login-button" onclick="manualLogin()">Login</button>
-      </div>
-      <div class="forgot-your-password-container">
-        <a href="forgotpassword.html" class="forgot-your-password">
-          Forgot your password?
-        </a>
-      </div>
-    </div>
-    <hr class="hr1">
-    <div class="signup-container">
-      <a class="signup" href="signup.html">Signup</a>
-    </div>
-    <div class="login-email-container">
-      <a class="login-email" href="#">Use email</a>
+    <h2>Login to JimTrung's Store</h2>
+    <hr>
+
+    <form class="login-form">
+      <label>
+        <span>Username:</span>
+        <input type="text" class="username-input">
+      </label>
+
+      <label>
+        <span>Password:</span>
+        <input type="password" class="password-input">
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" class="checkbox">
+        <span>Remember me</span>
+      </label>
+
+      <button type="button" class="login-button" onclick="manualLogin()">Login</button>
+
+      <a href="forgotpassword.html" class="forgot-password">Forgot your password?</a>
+    </form>
+
+    <hr>
+
+    <div class="links">
+      <a href="signup.html" class="signup">Signup</a>
+      <a href="#" class="login-email">Use email</a>
     </div>
   </div>
-  
+
   <script src="/scripts/login.js"></script>
 </body>
 </html>
