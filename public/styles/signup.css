@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.content-container {
+    padding: 8px 8px;
+    font-weight: 700;
+    color: lightblue;
+}
+
+.username-input,
+.email-input,
+.password-input,
+.password-again-input {
+    font-size: 16px;
+    width: 250px;
+}
+
+.input-container {
+    margin: 30px 50px;
+}
+
+.username-container,
+.email-container,
+.password-again-container,
+.password-input {
+    margin-bottom: 20px;
+}
+
+.username-input {
+    margin-left: 6px;
+}
+
+.email-input {
+    margin-left: 43px;
+}
+
+.info {
+    margin-right: 20px;
+}
+
+.password-input {
+    margin-left: 9px;
+}
+
+.login-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button-container {
+    margin-bottom: 15px;
+}
+
+.login-button {
+    font-size: 16px;
+    padding: 3px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.login-button:hover {
+    opacity: 0.9;
+}
+
+.login-button:active {
+    opacity: 0.7;
+}
+
+.login-email-container,
+.signup-container {
+    display: flex;
+    justify-content: right;
+}
+
+.login-email,
+.signup {
+    margin: 0px;
+    font-size: 15px;
+    color: lightblue;
+    align-self: self-end;
+}
+
+.signup {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.login-email {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
