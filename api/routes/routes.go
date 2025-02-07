@@ -17,5 +17,5 @@ func SetupRoutes(r *gin.Engine) {
 	users.GET("/validate", middleware.RequireAuth, handlers.Validate)
 
 	// Middleware
-	// r.Static("/", "./public")
+	r.Static("/static", "./public")
 }
