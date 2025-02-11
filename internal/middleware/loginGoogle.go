@@ -70,9 +70,16 @@ func GetAuthCallBackFunction(c *gin.Context) {
 	}
 	fmt.Println(user)
 
+	randomPassword, err := services.GenerateRandomPassword()
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "Failed to generate random password",
+		})
+	}
+
 	var userInfo = models.User{
 		Username: user.Email,
-		Password: services.GenerateRandomPassword(),
+		Password: randomPassword,
 		Email:    user.Email,
 	}
 	if err := services.AddUser(userInfo); err != nil {

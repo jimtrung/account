@@ -2,9 +2,11 @@ package services
 
 import (
 	"context"
+	"crypto/rand"
 
 	"github.com/jimtrung/account/config"
 	"github.com/jimtrung/account/internal/models"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func AddUser(user models.User) error {
@@ -64,6 +66,25 @@ func GetUserByUsername(username string) (models.User, error) {
 	return user, nil
 }
 
-func GenerateRandomPassword() string {
-	return "ajhdajadbhsbkdb"
+const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}<>?/"
+
+func GenerateRandomPassword() (string, error) {
+	bytes := make([]byte, 10)
+	_, err := rand.Read(bytes)
+	if err != nil {
+		return "", err
+	}
+
+	for i := range bytes {
+		bytes[i] = charset[int(bytes[i])%len(charset)]
+	}
+
+	password := string(bytes)
+	hashedPassword, err := bcrypt.GenerateFromPassword(
+		[]byte(password), 10,
+	)
+	if err != nil {
+		return "", err
+	}
+	return string(hashedPassword), nil
 }

@@ -98,3 +98,7 @@ func Validate(c *gin.Context) {
 
 	c.JSON(http.StatusOK, user)
 }
+
+func GetUser(c *gin.Context) {
+
+}
